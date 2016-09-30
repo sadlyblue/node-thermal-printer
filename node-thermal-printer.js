@@ -806,6 +806,7 @@ var setInternationalCharacterSet = function(charSet){
     if(charSet == "CHINA") return config.CHARCODE_CHINA;
     if(charSet == "VIETNAM") return config.CHARCODE_VIETNAM;
     if(charSet == "ARABIA") return config.CHARCODE_ARABIA;
+    if(charSet == "WPC1252") return config.CHARCODE_WPC1252;
     return null;
   }
 };
@@ -829,10 +830,21 @@ var append = function(buff){
 
       // Replace special characters
       if(printerConfig.replaceSpecialCharacters) {
-        for(var key in config.specialCharacters){
-          if(value == key){
-            tempBuff = new Buffer([config.specialCharacters[key]]);
-            break;
+          if(printerConfig.characterSet == 'WPC1252)
+          {
+             for(var key in config.specialCharactersWPC1252){
+              if(value == key){
+                tempBuff = new Buffer([config.specialCharacters[key]]);
+                break;
+              }
+          }
+          else
+          {
+            for(var key in config.specialCharacters){
+              if(value == key){
+                tempBuff = new Buffer([config.specialCharacters[key]]);
+                break;
+              }
           }
         }
       }
