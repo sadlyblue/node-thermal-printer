@@ -837,6 +837,7 @@ var append = function(buff){
                 tempBuff = new Buffer([config.specialCharacters[key]]);
                 break;
               }
+            }
           }
           else
           {
@@ -845,8 +846,8 @@ var append = function(buff){
                 tempBuff = new Buffer([config.specialCharacters[key]]);
                 break;
               }
+            }
           }
-        }
       }
 
       if(endBuff) endBuff = Buffer.concat([endBuff,tempBuff]);
